@@ -62,6 +62,27 @@ public class MainActivity extends AppCompatActivity {
                     {
                         linear.setVisibility(linear.VISIBLE);
                     }
+                } else //no one wins
+                {
+                    int ct = 0;
+                    for (int i = 0; i < pressed.length; i++)
+                    {
+                        if (pressed[i] != 2)
+                        {
+                            ct++;
+                            if (ct == 9)
+                            {
+                                LinearLayout linear = (LinearLayout) findViewById(R.id.playAgain);
+                                if (linear.getVisibility() == linear.INVISIBLE)
+                                {
+                                    linear.setVisibility(linear.VISIBLE);
+                                }
+                                TextView txt = (TextView) findViewById(R.id.textView);
+                                //String winner = (whichPressed == 0) ? "black" : "red";
+                                txt.setText("Draw!");
+                            }
+                        }
+                    }
                 }
             }
         }
